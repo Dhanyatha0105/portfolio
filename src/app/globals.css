@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-yellow: #FED177;
+  --color-yellow-dark: #f5c55a;
+  --color-sky-blue: #4E8FB3;
+  --color-hot-pink: #FF1493;
+  --color-magenta: #FF00FF;
+  --color-cyan-accent: #00FFFF;
+  --color-navy: #1a1a4e;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --font-anton: var(--font-anton);
+  --font-fredoka: var(--font-fredoka);
+  --font-inter: var(--font-inter);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Domain card with cyan+magenta offset shadow */
+.domain-card {
+  position: relative;
+  background: #FED177;
+  color: #1a1a4e;
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: 2px solid #1a1a4e;
+  transition: transform 0.2s ease;
+}
+
+.domain-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #00FFFF;
+  transform: translate(-6px, -6px);
+  pointer-events: none;
+}
+
+.domain-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #FF00FF;
+  transform: translate(6px, 6px);
+  pointer-events: none;
+}
+
+.domain-card:hover {
+  transform: scale(1.03);
+}
+
+/* Search pill with offset shadow */
+.search-pill {
+  position: relative;
+  background: #FED177;
+  border: 2px solid #1a1a4e;
+  border-radius: 9999px;
+  padding: 12px 28px 12px 48px;
+  font-weight: 700;
+  color: #1a1a4e;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.search-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #00FFFF;
+  border-radius: 9999px;
+  transform: translate(-4px, -4px);
+  pointer-events: none;
+}
+
+.search-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #FF00FF;
+  border-radius: 9999px;
+  transform: translate(4px, 4px);
+  pointer-events: none;
+}
+
+/* Tree dotted line styles */
+.tree-line {
+  border-color: #FED177;
+  border-style: dashed;
+  border-width: 3px;
+}
+
+.tree-branch-v {
+  border-left: 3px dashed #FED177;
+}
+
+.tree-branch-h {
+  border-top: 3px dashed #FED177;
+}
+
+/* Hot banner */
+.hot-banner {
+  background: #FED177;
+  position: relative;
+  overflow: hidden;
+}
+
+.hot-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #00FFFF;
+}
+
+/* View 35+ projects underline */
+.nav-highlight {
+  text-decoration: underline;
+  text-decoration-color: #FF1493;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 3px;
+}
+
+/* Scrollbar hide for tree */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
